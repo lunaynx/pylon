@@ -537,6 +537,9 @@ public class DisplaySdl {
     }
 
     private boolean enterBorderlessFullscreen() {
+        if (Boolean.getBoolean("pylon.disableBorderlessFullscreen")) {
+            return false;
+        }
         if (!"Windows".equals(SDLPlatform.SDL_GetPlatform())) {
             return false;
         }
